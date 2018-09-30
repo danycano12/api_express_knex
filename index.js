@@ -8,6 +8,7 @@ var knex = require('knex')({
     }
 });
 
+//"capa" web (no aparecen referencias al API de Knex)
 app.get("/users", function(pet, resp){
     listarUsuarios(function(datos){
         resp.send(datos)
@@ -15,7 +16,7 @@ app.get("/users", function(pet, resp){
 
 })
 
-//separar código de BD
+//"capa" de acceso a datos (no aparecen referencias al API de Express)
 function listarUsuarios(callback) {
     knex.select().from('Usuarios')
     .then(function(datos){
